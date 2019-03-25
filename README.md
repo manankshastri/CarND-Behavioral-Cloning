@@ -37,7 +37,7 @@ This is the script used to create and train the model.
 
 ### `drive.py`
 
-Usage of `drive.py` requires you have saved the trained model as an h5 file, i.e. `model.h5`. See the [Keras documentation](https://keras.io/getting-started/faq/#how-can-i-save-a-keras-model) for how to create this file using the following command:
+Usage of `drive.py` requires you have saved the trained model as an h5 file, i.e. `model.h5`. See the [Keras documentation](https://keras.io/getting-started/faq/#how-can-i-save-a-keras-model) for how to create this file.
 ```sh
 model.save(filepath)
 ```
@@ -96,3 +96,4 @@ Will run the video at 48 FPS. The default FPS is 60.
 
 1. It's been noted the simulator might perform differently based on the hardware. So if your model drives succesfully on your machine it might not on another machine. Saving a video is a solid backup in case this happens.
 2. You could slightly alter the code in `drive.py` and/or `video.py` to create a video of what your model sees after the image is processed (may be helpful for debugging).
+
