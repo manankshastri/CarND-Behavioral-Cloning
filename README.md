@@ -9,8 +9,6 @@ A convolutional neural network to clone driving behavior. The model outputs a st
 
 The model uses the image data and steering angles to train a neural network and then use this model to drive the car autonomously around the track.
 
-Sample data can be found [here](https://d17h27t6h515a5.cloudfront.net/topher/2016/December/584f6edd_data/data.zip).
-
 Required files for the project: 
 * model.py (script used to create and train the model)
 * drive.py (script to drive the car)
@@ -25,6 +23,17 @@ The goals / steps of this project are the following:
 * Use the model to drive the vehicle autonomously around the first track in the simulator. The vehicle should remain on the road for an entire loop around the track.
 
 ## Details About Files
+
+### `model.py`
+
+This is the script used to create and train the model.
+
+#### Pipeline: 
+- Create dataset by extracting image data and steering angles from csv file.
+- Use _generators_ for memory efficiency.
+- Split the dataset into training and validation.
+- Built a convolutional neural network. 
+- Save the model (any method can be used: either **model.save(model.h5)** or using **checkpoints**).
 
 ### `drive.py`
 
@@ -87,6 +96,3 @@ Will run the video at 48 FPS. The default FPS is 60.
 
 1. It's been noted the simulator might perform differently based on the hardware. So if your model drives succesfully on your machine it might not on another machine. Saving a video is a solid backup in case this happens.
 2. You could slightly alter the code in `drive.py` and/or `video.py` to create a video of what your model sees after the image is processed (may be helpful for debugging).
-
-
-
