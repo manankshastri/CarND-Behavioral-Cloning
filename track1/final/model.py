@@ -10,6 +10,7 @@ import numpy as np
 from keras.models import Sequential
 from keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropout, Lambda, Cropping2D
 from keras.callbacks import ModelCheckpoint, EarlyStopping, ReduceLROnPlateau
+from keras.utils.vis_utils import plot_model
 
 
 samples = []
@@ -96,10 +97,13 @@ model.add(Dense(1))
 
 model.summary()
 
+#to visualize the model architecture
+plot_model(model, to_file='model_plot.png', show_shapes=True, show_layer_names=True)
+
 #checkpoint 
 checkpoint = ModelCheckpoint("model.h5", monitor="val_loss", mode="min", save_best_only = True, verbose=1)
 
-#for earlystopping : if the val_loss is not improving
+#for early stopping : if the val_loss is not improving
 earlystop = EarlyStopping(monitor = 'val_loss', min_delta = 0, patience = 3, verbose = 1, restore_best_weights = True)
 
 #for reducing the Learning Rate : if the val_loss remains constant or is not improving
@@ -111,6 +115,3 @@ model.compile(loss='mse', optimizer='adam')
 hh = model.fit_generator(train_generator, steps_per_epoch=np.ceil(len(train_samples)/batch_size),
                     validation_data=validation_generator,validation_steps=np.ceil(len(validation_samples)/batch_size),
                     callbacks=callbacks, epochs=10, verbose=1)
-
-
-
