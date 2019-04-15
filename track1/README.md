@@ -10,4 +10,4 @@
 
 ## Output
 <img src="images/beh1.gif" style="width:380px;height:380px;">
-<a href="https://youtu.be/b9PGJEJ0_Yg">View on YouTube</a>
+<a href="https://youtu.be/b9PGJEJ0_Yg" target="_blank">View on YouTube</a>
